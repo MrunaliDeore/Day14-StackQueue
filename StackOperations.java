@@ -34,7 +34,20 @@ class Stack
 			return true;
 		}
 	}
-	
+	boolean pop ()
+	{
+		if (top == -1)
+		{
+			System.out.println("Underflow !!");
+			return false;
+		}
+		else
+		{
+			top --;    // LIFO=> top=5, 4=> stack_values, top 3-> stack_values
+			System.out.println("Item popped");
+			return true;
+		}
+	}
 	void display ()
 	{
 		System.out.println("Printing stack elements .....");
@@ -54,7 +67,7 @@ public class StackOperations {
 		while(choice != 4)
 		{
 			System.out.println("Chose one from the below options");
-			System.out.println("\n1.Push\n3.Show\n4.Exit");
+			System.out.println("\n1.Push\n2.Pop\n3.Show\n4.Exit");
 			System.out.println("\n Enter your choice :");
 			choice = sc.nextInt();
 			switch(choice)
@@ -66,10 +79,15 @@ public class StackOperations {
 			}
 			case 2:
 			{
-				s.display();
+				s.pop();
 				break;
 			}
 			case 3:
+			{
+				s.display();
+				break;
+			}
+			case 4:
 			{
 				System.out.println("Exiting....");
 				System.exit(0);
